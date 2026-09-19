@@ -1,0 +1,24 @@
+// inter semi Bold
+@font-face {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 600;
+	src: url("../fonts/Inter-SemiBold.woff") format("woff"),
+	url("../fonts/Inter-SemiBold.woff2") format("woff2");
+}
+// inter semi Bold italic
+@font-face {
+	font-family: "Inter";
+	font-style: italic;
+	font-weight: 600;
+	src: url("../fonts/Inter-SemiBoldItalic.woff") format("woff"),
+	url("../fonts/Inter-SemiBoldItalic.woff2") format("woff2");
+}
+// inter regular
+@font-face {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/Inter-Regular.woff") format("woff"),
+	url("../fonts/Inter-Regular.woff2") format("woff2");
+}

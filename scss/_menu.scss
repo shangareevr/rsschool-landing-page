@@ -1,0 +1,101 @@
+@use 'mixins';
+
+.menu {
+  &__list{
+    display: flex;
+    gap: 41px;
+    width: 100%;
+    justify-content: center;
+    padding-right: 45px;
+    margin-top: -3px;
+
+    @media(max-width:992px){
+      flex-direction: column;
+      align-items: center;
+      line-height: 125%;
+      gap: 60px;
+      padding-right: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__items{
+    @include mixins.link;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 8px;
+    a,
+    span {
+      color: var(--text-primary);
+    }
+
+    &--hover {
+      order: 1;
+      display: flex;
+      gap: 8px;
+      margin-top: -3px;
+
+      &::before {
+        content: '';
+        display: block;
+        order: 1;
+        width: 20px;
+        height: 20px;
+        mask-image: url('../icons/menu-icon.svg');
+        background-color: var(--text-primary);
+        mask-repeat: no-repeat;
+        mask-size: 100% 100%;
+      }
+
+      @media (max-width: 992px) {
+        &::before {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    &::after{
+      position: absolute;
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: var(--text-primary);
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.3s ease;
+    }
+    @media(hover:hover){
+    &:hover{
+      &::after{
+        width: 100%;
+      }
+    }      
+    }
+    &_active{
+      &::after{
+        width: 100%;
+      }
+    }
+    @media(max-width:992px){
+      @include mixins.burger-link;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+  }
+  &__link{
+    color: #403F3D;
+  }
+  &__icon{
+    width: 20px;
+    height: 20px;
+
+    @media(max-width:768px){
+      width: 40px;
+    height: 40px;
+    }
+  }
+}
