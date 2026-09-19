@@ -1109,4 +1109,113 @@ body.dark-theme .header__logo::after {
     border-color: var(--background-container);
     background-color: var(--background-container);
   }
+}
+
+.about__wrapper {
+  margin-top: 100px;
+}
+.about__title {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+@media (max-width: 767px) {
+  .about__title {
+    font-size: 32px;
+    line-height: 125%;
+  }
+}
+.about__title {
+  text-align: left;
+  color: var(--text-primary);
+}
+.about__title span {
+  font-style: italic;
+  color: var(--text-accent);
+}
+.about__images {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: repeat(106, 10px);
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
+}
+.about__img {
+  border-radius: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.about__img img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.about__img--first {
+  grid-row-start: 1;
+  grid-row-end: 59;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  height: 590px;
+}
+.about__img--second {
+  height: 430px;
+  grid-row-start: 1;
+  grid-row-end: 43;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.about__img--thrid {
+  height: 430px;
+  grid-row-start: 63;
+  grid-row-end: 106;
+}
+.about__img--fourth {
+  height: 590px;
+  grid-row-start: 47;
+  grid-row-end: 106;
+}
+@media (max-width: 1400px) {
+  .about__img {
+    max-width: 688px;
+  }
+}
+@media (max-width: 1200px) {
+  .about__images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 40px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .about__img--second, .about__img--thrid {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .about__img {
+    max-width: 100%;
+  }
+}
+@media (hover: hover) {
+  .about__img:hover img {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+  }
 }/*# sourceMappingURL=index.css.map */
