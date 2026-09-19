@@ -46,7 +46,7 @@ function openBurger(){
 
 function closeBurger(){
   window.addEventListener('click',e=>{
-    if (e.target.classList.contains('header__wrapper') || e.target.classList.contains('nav__link')) {
+    if (e.target.classList.contains('header__wrapper') || e.target.classList.contains('menu__link')) {
       document.querySelector('.header__menu').classList.remove('active');
       document.querySelector('.header__burger').classList.remove('active');
       document.body.classList.remove('no-scroll');
