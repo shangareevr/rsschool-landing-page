@@ -1,0 +1,140 @@
+@use './mixins';
+
+.mobile {
+  &__wrapper {
+    margin-top: 100px;
+    display: flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content: space-between;
+  }
+
+  &__info {
+    margin-top: 144px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 630px;
+  }
+
+  &__title {
+    @include mixins.heading-secondary;
+    text-align: left;
+    max-width: 600px;
+    color: var(--text-primary);
+
+    span {
+      font-style: italic;
+      color: var(--text-accent);
+    }
+  }
+
+  &__text {
+    @include mixins.medium;
+    color:var(--text-primary);
+  }
+
+  &__btns {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__btn {
+    width: 200px;
+    padding: 12px 20px;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid var(--border-color-inverse);
+    background-color: var(--background-page);
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    padding: 11.5px 20px;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+
+    &::before {
+      content: '';
+      display: flex;
+      width: 36px;
+      height: 36px;
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      background-color: var(--text-primary);
+      transition: background-color 0.3s linear;
+    }
+  }
+
+  &__google-play {
+    &::before {
+      mask-image: url('../icons/google-play.svg');
+    }
+  }
+
+  &__app-store {
+    &::before {
+      mask-image: url('../icons/app-store.svg');
+    }
+  }
+  &__img {
+    @media(max-width:700px) {
+      width: 348px;
+      height: 348px;
+    }
+  }
+
+  @media (hover:hover) {
+    &__btn {
+      &:hover {
+        background: var(--background-container);
+        color: var(--text-inverse);
+
+        &::before {
+          background-color: var(--text-inverse);
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    &__wrapper {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 100px;
+      align-items:center;
+    }
+
+    &__info {
+      margin-top: 0;
+      max-width: 768px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__wrapper {
+      gap: 38px;
+    }
+
+    &__btns {
+      flex-direction: column;
+    }
+  }
+}
+
+.btn {
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items:flex-start;
+  }
+
+  &__title {
+    text-align: center;
+    @include mixins.caption;
+  }
+
+  &__subtitle {
+    @include mixins.link;
+  }
+}
