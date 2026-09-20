@@ -38,10 +38,13 @@
     }
     @media(max-width:700px){
       max-height: 2187px;
+      padding-left: 19px;
+      padding-right: 19px;
     }
     &.active{
       max-height: max-content;
     }
+
   }
   &__items{
     display: none;

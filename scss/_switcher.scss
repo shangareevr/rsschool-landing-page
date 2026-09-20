@@ -5,6 +5,11 @@
     border-radius: 50%;
     cursor: pointer;
     position: relative;
+    transition: background linear 0.3s;
+
+    &::after {
+      transition: background-color linear 0.3s;
+    }
 
     &.active {
       background: var(--text-accent);
@@ -47,6 +52,15 @@
     }
   }
   
+  @media (hover:hover) {
+    &__item:not(.active):hover {
+      background: var(--background-container);
+
+      &::after {
+        background-color: var(--text-inverse);
+      }
+    }
+  }
   @media (max-width: 768px) {
     &__item {
       width: 44px;

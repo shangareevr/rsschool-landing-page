@@ -178,7 +178,10 @@
     &__arrow {
       &:hover {
         border-color: var(--background-container);
-        background-color: var(--background-container);
+        background: var(--background-container);
+        &::after {
+          background-color: var(--text-inverse);
+        }
       }
     }
   }

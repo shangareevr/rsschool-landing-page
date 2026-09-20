@@ -30,14 +30,13 @@
     right: 0;
     z-index: 5;
     padding: 60px 0;
-    height: 100vh;
     transform: translateX(100vw);
     background-color: var(--background-page);
     width: 100vw;
     transition: all 0.3s ease; 
-    top: 100px;
+    top: 90px;
     justify-content: center;
-    height: calc(100svh - 100px);
+    height: calc(100svh - 90px);
 
     &.active {
       z-index: 10;
@@ -117,6 +116,7 @@
     &__menu {
       justify-content: flex-start;
       gap: 102px;
+      padding-top: 70px;
     }
   }
 }
