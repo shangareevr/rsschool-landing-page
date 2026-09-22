@@ -1682,8 +1682,10 @@ body.dark-theme .header__logo::after {
   max-height: fit-content;
 }
 @media (max-width: 1200px) {
+  .catalog__list:not(.active) .catalog__items .catalog__item:nth-child(n+5) {
+    display: none;
+  }
   .catalog__list {
-    max-height: 1092px;
     overflow: hidden;
     padding-left: 16px;
     padding-right: 16px;
@@ -1691,7 +1693,6 @@ body.dark-theme .header__logo::after {
 }
 @media (max-width: 700px) {
   .catalog__list {
-    max-height: 2187px;
     padding-left: 19px;
     padding-right: 19px;
   }
@@ -1805,7 +1806,7 @@ body.dark-theme .header__logo::after {
   display: -ms-flexbox;
   display: flex;
 }
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .catalog__icon {
     display: none;
   }
