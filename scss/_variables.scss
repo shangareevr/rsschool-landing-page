@@ -1,0 +1,24 @@
+// fonts
+$font-family: Inter, Arial, sans-serif;
+
+:root {
+  --text-primary: #403F3D;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+  --background-page: #E1D4C9;
+  --background-container: #665F55;
+  --backround-overlay: #403F3DCC;
+  --border-color-primary: #C1B6AD;
+  --border-color-inverse: #665F55;
+}
+
+body.dark-theme {
+  --text-primary: #E1D4C9;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+  --background-page: #292826;
+  --background-container: #403F3D;
+  --backround-overlay: #292826CC;
+  --border-color-primary: #665F55;
+  --border-color-inverse: #C1B6AD;
+}
