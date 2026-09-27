@@ -55,90 +55,8 @@
               </div>
             </div>
             <div class="catalog__list">
-              <div class="catalog__items active">
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-1.jpg" alt="Irish coffee">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Irish coffee</h2>
-                    <div class="info__text">Fragrant black coffee with Jameson Irish whiskey and whipped milk</div>
-                    <div class="info__price">$7.00</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-2.jpg" alt="Kahlua coffee">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Kahlua coffee</h2>
-                    <div class="info__text">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</div>
-                    <div class="info__price">$7.00</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-3.jpg" alt="Honey raf">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Honey raf</h2>
-                    <div class="info__text">Espresso with frothed milk, cream and aromatic honey</div>
-                    <div class="info__price">$5.50</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-4.jpg" alt="Ice cappuccino">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Ice cappuccino</h2>
-                    <div class="info__text">Cappuccino with soft thick foam in summer version with ice</div>
-                    <div class="info__price">$5.00</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-5.jpg" alt="Espresso">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Espresso</h2>
-                    <div class="info__text">Classic black coffee</div>
-                    <div class="info__price">$4.50</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-6.jpg" alt="Latte">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Latte</h2>
-                    <div class="info__text">Espresso coffee with the addition of steamed milk and dense milk foam</div>
-                    <div class="info__price">$5.50</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-7.jpg" alt="Latte macchiato">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Latte macchiato</h2>
-                    <div class="info__text">Espresso with frothed milk and chocolate</div>
-                    <div class="info__price">$5.50</div>
-                  </div>
-                </div>
-                <div class="catalog__item">
-                  <div class="catalog__img">
-                    <img src="./assets/images/coffee-8.jpg" alt="Coffee with cognac">
-                  </div>
-                  <div class="catalog__info">
-                    <h2 class="info__title">Coffee with cognac</h2>
-                    <div class="info__text">Fragrant black coffee with cognac and whipped cream</div>
-                    <div class="info__price">$6.50</div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="catalog__icon">
+            <div class="catalog__icon hide">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -189,6 +107,79 @@
       </div>
     </footer>
   </div>
-  <script src="./assets/scripts/script.js"></script>
+      <div class="overlay">
+      <div class="modal ">
+         <div class="modal__wrapper">
+          <div class="modal__img">
+            <img src="./assets/images/coffee-1.jpg" alt="Irish coffee">
+          </div>
+            <div class="modal__content">
+               <div class="modal__title">Irish coffee</div>
+               <div class="modal__subtitle">Fragrant black coffee with Jameson Irish whiskey and whipped milk</div>
+               <div class="modal__size">
+                <div class="size__title">Size</div>
+                <div class="size__btns">
+                  <button class="size__btn active size__btn_small" value="0">
+                    <div class="btn__icon">S</div>
+                    <div class="btn__info">200 ml</div>
+                  </button>
+                  <button class="size__btn size__btn_medium" value="0">
+                    <div class="btn__icon">M</div>
+                    <div class="btn__info">300 ml</div>
+                  </button>
+                  <button class="size__btn size__btn_large" value="0">
+                    <div class="btn__icon">L</div>
+                    <div class="btn__info">400 ml</div>
+                  </button>
+                </div>
+               </div>
+               <div class="modal__additives">
+                <div class="additives__title">Additives</div>
+                <div class="additives__btns">
+                  <button class="additives__btn additives__btn_first" value="0">
+                    <div class="btn__icon">1</div>
+                    <div class="btn__info">Sugar</div>
+                  </button>
+                  <button class="additives__btn additives__btn_second" value="0">
+                    <div class="btn__icon">2</div>
+                    <div class="btn__info">Cinnamon</div>
+                  </button>
+                  <button class="additives__btn additives__btn_third" value="0">
+                    <div class="btn__icon">3</div>
+                    <div class="btn__info">Syrup</div>
+                  </button>
+                </div>
+               </div>
+               <div class="modal__total">
+                <div class="total__title">Total:</div>
+                <div class="total__price"><span>$</span><span>7.00</span></div>
+               </div>
+               <div class="modal__alert">
+                <div class="alert__img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <g clip-path="url(#clip0_268_12877)">
+                      <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.99967 14.6667C11.6816 14.6667 14.6663 11.6819 14.6663 8.00004C14.6663 4.31814 11.6816 1.33337 7.99967 1.33337C4.31778 1.33337 1.33301 4.31814 1.33301 8.00004C1.33301 11.6819 4.31778 14.6667 7.99967 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_268_12877">
+                        <rect width="16" height="16" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="alert__text">
+                  The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
+                </div>
+               </div>
+               <button class="modal__close">
+                Close
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>  
+  <script src="./assets/scripts/script.js" type="module"></script>
 </body>
 </html>
