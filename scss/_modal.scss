@@ -88,6 +88,7 @@
     padding: 12px 0;
     color: var(--text-primary);
     background-color: var(--background-page);
+    cursor: pointer;
   }
 }
 .size{
@@ -115,6 +116,7 @@
     align-items: center;
     background-color: var(--background-page);
     color: var(--text-primary);
+    cursor: pointer;
 
     &.active{
       background-color: var(--background-container);
@@ -168,6 +170,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--background-pag);
+    cursor: pointer;
     &.active{
       background-color: var(--background-container);
       color: var(--text-inverse);

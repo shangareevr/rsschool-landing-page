@@ -108,7 +108,78 @@ window.addEventListener('DOMContentLoaded', e=> {
 
     })
   })
+
+  // slider  
+  const sliderNextBtn = document.querySelector('.slider__arrow--next');
+  const sliderPrevBtn = document.querySelector('.slider__arrow--prev');
+  const sliderTrack = document.querySelector('.slider');
+  const sliderControls = document.querySelectorAll('.slider__controls');
+  const slides = document.querySelectorAll('.slider__elem');
+  let slideWidth = slides[0].offsetWidth;
+
+  if (sliderNextBtn) {
+    sliderNextBtn.addEventListener('click', e=> {
+      sliderNext();
+    })
+  }
+
+  if (sliderPrevBtn) {
+    sliderPrevBtn.addEventListener('click', e=> {
+      sliderPrev();
+    })
+  }
+
+  const nav = document.querySelector('.slider__nav');
+  if (nav) {
+    nav.addEventListener('animationend', e=>{
+      if(e.animationName === 'interval'){
+        sliderNext();
+      }
+    })
+  }
+
+  let event = null;
+  let start = null;
+  let end = null;
+  let length = 0;
+  sliderTrack.addEventListener('touchstart',e=>{
+    e.preventDefault();
+    sliderControls[currentIndex].classList.add('pause');
+    event = e;
+    start = event.touches[0].clientX;  
+  })
+  
+  sliderTrack.addEventListener("touchmove", e=> {
+    if (event) {
+      end = e.touches[0].clientX;
+      length = start - end;    
+    }
+  });
+
+  sliderTrack.addEventListener("touchend", e=> {
+  sliderControls[currentIndex].classList.remove('pause');
+    if(length > slideWidth*0.1){
+      sliderNext();
+    } else if( length < -slideWidth*0.1){
+      sliderPrev();
+    }
+    event = null;
+    start = null;  
+    end = null;  
+    length = 0;  
+  });
+
+  sliderTrack.addEventListener('mouseover',e=>{
+    sliderControls[currentIndex].classList.add('pause');
+  })
+  sliderTrack.addEventListener('mouseout',e=>{
+    sliderControls[currentIndex].classList.remove('pause');
+  });
+
+  sliderControlsClick();
 })
+
+let currentIndex = 0;
 
 function openBurger(){
   const menu = document.querySelector('.header__menu');
@@ -239,6 +310,10 @@ const tabs = document.querySelectorAll('.tabs__items'),
 
 window.addEventListener('resize', e=>{
   showBtn();
+  const slider = document.querySelector('.slider__list');
+  const slides = document.querySelectorAll('.slider__elem');
+  const position = -slides[0].offsetWidth * currentIndex;
+  slider.style.transform = `translateX(${position}px)`;
 })
 
 function createModal(img, name, description, sizes, additives, price){
@@ -269,4 +344,68 @@ function createModal(img, name, description, sizes, additives, price){
   thirdAdditives.lastElementChild.innerText = additives[2]['name'];
   const total = document.querySelector('.total__price');
   total.lastElementChild.innerText = price;
+}
+
+function sliderNext() {
+  const slider = document.querySelector('.slider__list');
+  const slides = document.querySelectorAll('.slider__elem');
+  const sliderControls = document.querySelectorAll('.slider__controls');
+  const sliderControlActive = document.querySelector('.slider__controls.active');
+  if (!slider || !slides.length) return;
+  currentIndex += 1;
+  const slideWidth = slides[0].offsetWidth;
+  const matrix = new DOMMatrixReadOnly(getComputedStyle(slider).transform);
+  const currentX = matrix.m41;
+  const maxX = -(slides.length * slideWidth - slider.offsetWidth);
+  let nextX = currentX - slideWidth;
+  sliderControlActive.classList.remove('active');
+  if (nextX < maxX) {
+    nextX = 0;
+    currentIndex = 0;
+  };
+  slider.style.transform = `translateX(${nextX}px)`;
+  sliderControls[currentIndex].classList.add('active');
+}
+
+function sliderPrev() {
+  const slider = document.querySelector('.slider__list');
+  const slides = document.querySelectorAll('.slider__elem');
+  const sliderControls = document.querySelectorAll('.slider__controls');
+  const sliderControlActive = document.querySelector('.slider__controls.active');
+
+  if (!slider || !slides.length) return;
+  const slideWidth = slides[0].offsetWidth;
+  const maxX = -(slides.length * slideWidth - slider.offsetWidth); 
+  const matrix = new DOMMatrixReadOnly(getComputedStyle(slider).transform);
+  const currentX = matrix.m41;
+  let nextX = currentX + slideWidth;
+  currentIndex -= 1;
+  sliderControlActive.classList.remove('active');
+  if (nextX > 0) {
+    nextX = maxX;
+    currentIndex = sliderControls.length - 1;
+  };
+  slider.style.transform = `translateX(${nextX}px)`;
+  sliderControls[currentIndex].classList.add('active');
+}
+
+function sliderControlsClick() {
+  const sliderControls = document.querySelectorAll('.slider__controls');
+  const slider = document.querySelector('.slider__list');
+  const slides = document.querySelectorAll('.slider__elem');
+  if (!slider || !slides.length) return;
+  if (sliderControls.length > 0) {
+    sliderControls.forEach((sliderControl, index)=> {
+      sliderControl.addEventListener('click', e=> {
+        const sliderControlActive = document.querySelector('.slider__controls.active');
+        if (!sliderControl.classList.contains('active')) {
+          currentIndex = index;
+          sliderControlActive.classList.remove('active');
+          const position = -slides[0].offsetWidth * currentIndex;
+          slider.style.transform = `translateX(${position}px)`;
+          sliderControl.classList.add('active');
+        }
+      })
+    })
+  }
 }
