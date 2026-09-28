@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', e=> {
   const sliderTrack = document.querySelector('.slider');
   const sliderControls = document.querySelectorAll('.slider__controls');
   const slides = document.querySelectorAll('.slider__elem');
-  let slideWidth = slides[0].offsetWidth;
+  let slideWidth =  slides.length ? slides[0].offsetWidth : 0;
 
   if (sliderNextBtn) {
     sliderNextBtn.addEventListener('click', e=> {
@@ -142,39 +142,40 @@ window.addEventListener('DOMContentLoaded', e=> {
   let start = null;
   let end = null;
   let length = 0;
-  sliderTrack.addEventListener('touchstart',e=>{
-    e.preventDefault();
-    sliderControls[currentIndex].classList.add('pause');
-    event = e;
-    start = event.touches[0].clientX;  
-  })
+  if (sliderTrack) {
+    sliderTrack.addEventListener('touchstart',e=>{
+      sliderControls[currentIndex].classList.add('pause');
+      event = e;
+      start = event.touches[0].clientX;  
+    })
   
-  sliderTrack.addEventListener("touchmove", e=> {
-    if (event) {
-      end = e.touches[0].clientX;
-      length = start - end;    
-    }
-  });
-
-  sliderTrack.addEventListener("touchend", e=> {
-  sliderControls[currentIndex].classList.remove('pause');
-    if(length > slideWidth*0.1){
-      sliderNext();
-    } else if( length < -slideWidth*0.1){
-      sliderPrev();
-    }
-    event = null;
-    start = null;  
-    end = null;  
-    length = 0;  
-  });
-
-  sliderTrack.addEventListener('mouseover',e=>{
-    sliderControls[currentIndex].classList.add('pause');
-  })
-  sliderTrack.addEventListener('mouseout',e=>{
+    sliderTrack.addEventListener("touchmove", e=> {
+      if (event) {
+        end = e.touches[0].clientX;
+        length = start - end;    
+      }
+    });
+  
+    sliderTrack.addEventListener("touchend", e=> {
     sliderControls[currentIndex].classList.remove('pause');
-  });
+      if(length > slideWidth*0.1){
+        sliderNext();
+      } else if( length < -slideWidth*0.1){
+        sliderPrev();
+      }
+      event = null;
+      start = null;  
+      end = null;  
+      length = 0;  
+    });
+  
+    sliderTrack.addEventListener('mouseover',e=>{
+      sliderControls[currentIndex].classList.add('pause');
+    })
+    sliderTrack.addEventListener('mouseout',e=>{
+      sliderControls[currentIndex].classList.remove('pause');
+    });
+  }
 
   sliderControlsClick();
 })
