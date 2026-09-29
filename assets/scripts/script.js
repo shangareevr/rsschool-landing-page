@@ -335,6 +335,13 @@ window.addEventListener('keydown', (event) => {
         btn.classList.remove('active');
       })
     }
+
+    const menu = document.querySelector('.header__menu.active');
+    if (menu) {
+      document.querySelector('.header__menu').classList.remove('active');
+      document.querySelector('.header__burger').classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
   }
 });
 
