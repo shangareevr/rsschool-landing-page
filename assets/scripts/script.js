@@ -313,9 +313,30 @@ window.addEventListener('resize', e=>{
   showBtn();
   const slider = document.querySelector('.slider__list');
   const slides = document.querySelectorAll('.slider__elem');
-  const position = -slides[0].offsetWidth * currentIndex;
-  slider.style.transform = `translateX(${position}px)`;
+  if (slider && slides.length > 0) {    
+    const position = -slides[0].offsetWidth * currentIndex;
+    slider.style.transform = `translateX(${position}px)`;
+  }
 })
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    const overlay = document.querySelector('.overlay.active');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+      const sizeBtns = document.querySelectorAll('.size__btn');
+      sizeBtns.forEach(btn=>{
+        btn.classList.remove('active');
+      })
+      sizeBtns[0].classList.add('active');
+      const additivesBtns = document.querySelectorAll('.additives__btn');
+      additivesBtns.forEach(btn=>{
+        btn.classList.remove('active');
+      })
+    }
+  }
+});
 
 function createModal(img, name, description, sizes, additives, price){
   const icon = document.querySelector('.modal__img');
