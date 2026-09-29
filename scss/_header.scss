@@ -6,6 +6,10 @@
     align-items: center;
     gap: 24px;
     justify-content: space-between;
+
+    @media (max-width: 1000px) {
+      gap: 10px;
+    }
   }
 
   &__logo {
@@ -92,7 +96,7 @@
     }
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 770px) {
     &__menu {
       display: contents;
     }
