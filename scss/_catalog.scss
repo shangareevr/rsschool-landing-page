@@ -74,6 +74,8 @@
     flex-direction: column;
     border-radius: 40px;
     border: 1px solid var(--border-color-primary);
+    cursor: pointer;
+    
     @media(hover:hover){
     &:hover{
       img{
@@ -118,7 +120,7 @@
       cursor: pointer;
 
       &.hide{
-        display: flex;
+        display: none;
       }
   }
 

@@ -138,9 +138,18 @@
       height: 100%;
       display: block;
     }
+    
     &.active {
       &::before {
+        animation-name: interval;
+        animation-duration: 6s;
         background-color: var(--border-color-inverse);
+      }
+    }
+
+    &.pause{
+      &::before{
+        animation-play-state: paused;
       }
     }
   }
@@ -185,4 +194,9 @@
       }
     }
   }
+}
+
+@keyframes interval {
+  from {width: 0px;}
+  to {width: 100%;}
 }
